@@ -1,0 +1,21 @@
+<h1 class="mb-4">Admin Page</h1>            
+<h2>List of users:</h2>  
+<% @users.each do |user| %>
+  <article class="card mt-3">
+    <div class="card-body">
+      <h2><%= user.username %></h2>
+
+      <div class="lead my-3">
+        <h2><%= user.email %></h2>
+      </div>
+      <h2><%= user.password %></h2>
+      <br>
+      <%= link_to 'Edit', edit_admin_user_path(user), class: 'btn btn-primary'%>
+      <%= link_to 'Destroy', admin_user_path(user), class: 'btn btn-danger',
+        data: {method: :delete, confirm: 'Are you sure?'} %>
+    </div>
+  </article>
+<% end %>
+
+
+
