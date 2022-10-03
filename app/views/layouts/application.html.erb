@@ -16,8 +16,17 @@
         <nav class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
           <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
             <li><%= link_to 'Home', root_path,  class: 'nav-link px-2 text-white' %></li>
-            <li><%= link_to 'Show all users', admin_users_path, class: 'nav-link px-2 text-white' %></li>
-            <li><%= link_to 'Exit', class: 'nav-link px-2 text-white', data: {method: :delete} %></li>  
+            <li><%= link_to 'Show all users', admins_users_path, class: 'nav-link px-2 text-white' %></li>
+          </ul>
+
+          <ul class="nav col-12 col-lg-auto">
+            <% if admin_signed_in? %>
+              <li>
+                <a class="nav-link px-2 text-white" href="#">Admin Present</a>
+              </li>
+            <% else %>
+              <li><%= link_to 'Sign Up', new_admin_path, class: 'nav-link px-2 text-white' %></li>
+            <% end %>
           </ul>
         </nav>
       </div>
@@ -45,8 +54,6 @@
 
   // Initialize Firebase
   const app = initializeApp(firebaseConfig);
-
-  console.log(app)
 
 </script>
 </html>
