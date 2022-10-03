@@ -1,4 +1,4 @@
-class Admin::UsersController < ApplicationController
+class Admins::UsersController < ApplicationController
   before_action :find_user, except: :index
   def index
     @users = User.order(created_at: :desc)
@@ -13,7 +13,7 @@ class Admin::UsersController < ApplicationController
   def update
     if @user.update user_params
       flash[:success] = 'User updated!'
-      redirect_to admin_users_path
+      redirect_to admins_users_path
     else
       render action: 'edit'
     end
@@ -22,7 +22,7 @@ class Admin::UsersController < ApplicationController
   def destroy
     @user.destroy
     flash[:success] = 'Question deleted!'
-    redirect_to admin_users_path
+    redirect_to admins_users_path
   end
 
   private
