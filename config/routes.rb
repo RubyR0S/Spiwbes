@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  
+ 
   resources :admin, only: %i[new create]
 
   namespace :admin do

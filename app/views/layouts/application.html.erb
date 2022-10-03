@@ -17,11 +17,36 @@
           <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
             <li><%= link_to 'Home', root_path,  class: 'nav-link px-2 text-white' %></li>
             <li><%= link_to 'Show all users', admin_users_path, class: 'nav-link px-2 text-white' %></li>
-            <li><%= link_to 'Exit' %></li>
+            <li><%= link_to 'Exit', class: 'nav-link px-2 text-white', data: {method: :delete} %></li>  
           </ul>
         </nav>
       </div>
     </header>
     <%= yield %>
   </body>
+
+
+<script type="module">
+  // Import the functions you need from the SDKs you need
+  import { initializeApp } from "https://www.gstatic.com/firebasejs/9.10.0/firebase-app.js";
+
+  // TODO: Add SDKs for Firebase products that you want to use
+  // https://firebase.google.com/docs/web/setup#available-libraries
+
+  // Your web app's Firebase configuration
+  const firebaseConfig = {
+    apiKey: "AIzaSyB-dBdp8Qfl9Edrp8478YAcfSIZ3Iw4gRw",
+    authDomain: "rubynotif.firebaseapp.com",
+    projectId: "rubynotif",
+    storageBucket: "rubynotif.appspot.com",
+    messagingSenderId: "1001608753563",
+    appId: "1:1001608753563:web:2903c41d94b64a351e313e"
+  };
+
+  // Initialize Firebase
+  const app = initializeApp(firebaseConfig);
+
+  console.log(app)
+
+</script>
 </html>
