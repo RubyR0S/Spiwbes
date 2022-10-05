@@ -3,7 +3,7 @@ Rails.application.routes.draw do
 
   resources :admins, only: %i[new create]
 
-  resources :notifications, only: %i[new create destroy]
+  resources :notifications, only: %i[new create]
 
   namespace :admins do
     resources :users
