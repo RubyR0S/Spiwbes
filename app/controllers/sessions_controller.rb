@@ -18,10 +18,4 @@ class SessionsController < ApplicationController
     flash[:success] = 'See you later!'
     redirect_to root_path
   end
-
-  private
-
-  def sign_in(admin)
-    session[:admin_id] = admin.id
-  end
 end

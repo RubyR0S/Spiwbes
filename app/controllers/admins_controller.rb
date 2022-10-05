@@ -19,8 +19,4 @@ class AdminsController < ApplicationController
   def admin_params
     params.require(:admin).permit(:email, :password, :password_confirmation)
   end
-
-  def sign_in(admin)
-    session[:admin_id] = admin.id
-  end
 end
