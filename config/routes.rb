@@ -3,11 +3,13 @@ Rails.application.routes.draw do
 
   resources :admins, only: %i[new create]
 
+  resources :notifications, only: %i[new create destroy]
+
   namespace :admins do
     resources :users
   end
 
-  resources :users, param: :_username
+  resources :users, only: %i[new create]
   post '/auth/login', to: 'authentication#login'
   get '/*a', to: 'application#not_found'
 
