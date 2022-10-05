@@ -6,7 +6,7 @@ class AdminsController < ApplicationController
   def create
     @admin = Admin.new admin_params
     if @admin.save
-      session[:admin_id] = @admin.id
+      sign_in @admin
       flash[:success] = 'Welcome, new admin!'
       redirect_to root_path
     else
@@ -20,4 +20,7 @@ class AdminsController < ApplicationController
     params.require(:admin).permit(:email, :password, :password_confirmation)
   end
 
+  def sign_in(admin)
+    session[:admin_id] = admin.id
+  end
 end
