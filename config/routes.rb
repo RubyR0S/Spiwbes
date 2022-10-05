@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
- 
+  resource :session, only: %i[new create destroy]
+
   resources :admins, only: %i[new create]
 
   namespace :admins do
