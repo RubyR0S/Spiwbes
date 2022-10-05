@@ -11,4 +11,11 @@ class ApplicationController < ActionController::Base
   end
 
   helper_method :current_admin, :admin_signed_in?
+
+  def require_authentication
+    return if admin_signed_in?
+
+    flash[:warning] = 'You are not signed in!'
+    redirect_to root_path
+  end
 end

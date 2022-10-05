@@ -1,5 +1,8 @@
 class Admins::UsersController < ApplicationController
   before_action :find_user, except: :index
+  before_action :require_authentication
+
+
   def index
     @users = User.order(created_at: :desc)
   end
