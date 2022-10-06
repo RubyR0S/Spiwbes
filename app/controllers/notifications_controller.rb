@@ -2,15 +2,16 @@ class NotificationsController < ApiController
 before_action :authorize_request
 
   def show
-    render json: @notification, status: :ok
+    notification = Notification.find(params[:id])
+    render json: notification, status: :ok
   end
 
   def create
-    @notification = @current_user.notifications.new(notification_params)
-    if @notification.save
-      render json: @notification, status: :ok
+    notification = @current_user.notifications.new(notification_params)
+    if notification.save
+      render json: notification, status: :ok
     else
-      render json: { errors: @notification.errors.full_messages },
+      render json: { errors: notification.errors.full_messages },
              status: :unprocessable_entity
     end
   end

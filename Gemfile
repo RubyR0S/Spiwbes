@@ -62,5 +62,5 @@ group :development do
   # gem "spring"
 end
 
-
+gem "redis"
 gem "sidekiq", "~> 6.5"

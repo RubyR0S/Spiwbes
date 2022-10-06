@@ -3,6 +3,7 @@ class AdminsController < ApplicationController
     @admin = Admin.new
   end
 
+  #TODO: Change logic to production
   def create
     @admin = Admin.new admin_params
     if @admin.save
