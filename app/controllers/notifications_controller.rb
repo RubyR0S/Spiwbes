@@ -7,10 +7,9 @@ before_action :authorize_request
   end
 
   def create
-    time = date.parse(notification.notify_at)
     notification = @current_user.notifications.new(notification_params)
     if notification.save
-      NotificationWorker.perform_at(time ,@current_user.id)
+      NotificationWorker.perform_at(notification.notify_at, @current_user.id)
       render json: notification, status: :ok
     else
       render json: { errors: notification.errors.full_messages },
